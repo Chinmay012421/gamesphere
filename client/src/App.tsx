@@ -19,6 +19,23 @@ const feed = [
   { name: 'Kairo.exe', handle: '@kairoexe', time: '38 min ago', avatar: 'K', color: 'blue', text: 'Putting together a squad for the weekend tournament. Looking for chill players who communicate and want to improve together.', tags: ['SQUAD FINDER', 'APEX'], likes: 64, comments: 17 },
 ];
 function App() {
+  useEffect(() => {
+  async function testSupabase() {
+    const { data, error } = await supabase
+      .from('games')
+      .select('id, name, genre')
+      .limit(5);
+
+    if (error) {
+      console.error('Supabase connection failed:', error.message);
+      return;
+    }
+
+    console.log('Supabase connected! Games:', data);
+  }
+
+  void testSupabase();
+}, []);
   const [active, setActive] = useState('Overview');
   const [query, setQuery] = useState('');
   const [joined, setJoined] = useState<string[]>([]);
