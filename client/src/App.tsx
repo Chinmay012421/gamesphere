@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react';
+import { supabase } from './lib/supabase';
 import { Activity, ArrowRight, Bell, ChevronRight, CircleHelp, Compass, Flame, Gamepad2, Gamepad, Menu, MessageCircle, Plus, Search, ShieldCheck, Swords, Trophy, Users, X, Zap } from 'lucide-react';
 
 type Game = { name: string; genre: string; players: string; image: string; accent: string; status: string };
